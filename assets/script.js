@@ -43,20 +43,25 @@ function generatePassword() {
     console.log(finalString);
   }
 
-  // Prompt for password length (between 8 and 128)  
-  var pwdLength = prompt("How many characters would you like? Choose a number between 8 and 128");
-  console.log(pwdLength);
+  // add all conditionals for password length verification
 
-  // Create conditional for number length
-  if (pwdLength < 8 || pwdLength > 128) {
-    alert("Please choose a number between 8 and 128");
-  } else if (pwdLength === null) {
-    alert("Please choose a number between 8 and 128");
-  } else if (isNaN(pwdLength)) {
-    alert("Please choose a NUMBER between 8 and 128");
-  }
-  console.log(pwdLength);
+  var pwdLength = "";
 
+  do {
+    var isInvalid = false;
+
+    // Prompt for password length (between 8 and 128)  
+    pwdLength = prompt("How many characters would you like? Choose a number between 8 and 128");
+    console.log(pwdLength);
+
+    // Create conditionals for number length
+    if (pwdLength < 8 || pwdLength > 128 || pwdLength === null || isNaN(pwdLength)) {
+      alert("Please choose a NUMBER between 8 and 128");
+      isInvalid = true;
+    }
+    console.log(pwdLength);
+  } while (isInvalid)
+  
   // Create a final variable to hold our password
   var finalPwd = "";
 
