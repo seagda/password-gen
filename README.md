@@ -28,6 +28,6 @@ View the [Deployed Application](https://seagda.github.io/password-gen/)
 
 The following image shows the web application's appearance and functionality:
 
-![password generator demo](assets/01-javascript-homework-demo.png)
+![password generator demo](assets/03-javascript-homework-demo.png)
 
 Code developed by @seagda, December 2020
