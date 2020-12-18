@@ -2,13 +2,13 @@
 var generateBtn = document.querySelector("#generate");
 
 // Create Global variables that hold values of CAP letters, LOWER letters, nums, and special characters
-var nums = "01234567890";
+var nums = "0123456789";
 var caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var specChars = "!@#$%^&*+";
 
 // Create empty array to capture user selections
-var finalArray = [];
+var finalString = "";
 
 
 // Create generatePassord function referenced above, complete with logic
@@ -19,28 +19,28 @@ function generatePassword() {
   var specialsQ = confirm("Do you want to include special characters?");
   if (specialsQ === true) {
     //push all the specials into the empty array
-    finalArray = finalArray + specChars;
-    console.log(finalArray);
+    finalString = finalString + specChars;
+    console.log(finalString);
   }
 
   // Confirm inclusion of capital letters 
   var capsQ = confirm("Do you want to include capital letters?");
   if (capsQ === true) {
     //push all the Caps and the Lowers into the empty array
-    finalArray = finalArray + caps + lower;
-    console.log(finalArray);
+    finalString = finalString + caps + lower;
+    console.log(finalString);
   } else {
     // just push the lowercase, which ensures they've entered something
-    finalArray = finalArray + lower;
-    console.log(finalArray);
+    finalString = finalString + lower;
+    console.log(finalString);
   }
 
   // Confirm inclusion of numerals  
   var numsQ = confirm("Do you want to include numbers?");
   if (numsQ === true) {
     //push all the numerals into the empty array
-    finalArray = finalArray + nums;
-    console.log(finalArray);
+    finalString = finalString + nums;
+    console.log(finalString);
   }
 
   // Prompt for password length (between 8 and 128)  
@@ -56,23 +56,23 @@ function generatePassword() {
     alert("Please choose a NUMBER between 8 and 128");
   }
   console.log(pwdLength);
- 
+
   // Create a final variable to hold our password
-  var finalPwd;
+  var finalPwd = "";
 
   // Create for loop over final array to figure out how many characters
+  console.log(typeof finalString);
 
   for (var i = 0; i < pwdLength; i++) {
-    var randomized = Math.floor(Math.random() * finalArray.length);
-    finalPwd += finalArray[randomized];
+    var randomized = Math.floor(Math.random() * finalString.length);
+    finalPwd += finalString[randomized];
   }
 
   //  THEN a password is generated that matches the selected criteria
 
   console.log(finalPwd);
-
+  return finalPwd;
 }
-
 
 // Write password to the #password input
 function writePassword() {
